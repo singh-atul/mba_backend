@@ -1,0 +1,11 @@
+{
+  "name": "mba",
+  "version": "1.0.0",
+  "description": "Code base for the Movie Booking Application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "kankvish@gmail.com <Vishwa Mohan>",
+  "license": "ISC"
+}
