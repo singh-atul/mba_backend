@@ -7,7 +7,6 @@ const Movie = require("../models/movie.model");
  * Allow the filtering based on the name
  */
 exports.getAllMovies = async (req, res) => {
-
     const queryObj = {};
 
     if (req.query.name != undefined) {
