@@ -2,7 +2,6 @@ const constants = require("../utils/constants");
 
 
 validateMovieRequestBody = async (req, res, next) => {
-
     //Validate the movie name
     if (!req.body.name) {
         return res.status(400).send({
@@ -10,7 +9,6 @@ validateMovieRequestBody = async (req, res, next) => {
         });
 
     }
-
     //validate the movie status
     if (!req.body.releaseStatus) {
         return res.status(400).send({
@@ -27,7 +25,6 @@ validateMovieRequestBody = async (req, res, next) => {
         });
 
     }
-
     //validate the release date
     if (!req.body.releaseDate) {
         return res.status(400).send({
@@ -35,6 +32,7 @@ validateMovieRequestBody = async (req, res, next) => {
         });
 
     }
+
 
     //Validate the director
     if (!req.body.director) {

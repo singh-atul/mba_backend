@@ -33,6 +33,7 @@ exports.getMovie = async (req, res) => {
  * Create the movie resource
  */
 exports.createMovie = async (req, res) => {
+    console.log("####")
     const movieObject = {
         name: req.body.name,
         description: req.body.description,
@@ -63,15 +64,15 @@ exports.updateMovie = async (req, res) => {
         });
     }
 
-    savedMovie.name = req.body.name != undefined ? req.body.name : savedMovie.name,
-        savedMovie.description = req.body.description != undefined ? req.body.description : savedMovie.description,
-        savedMovie.casts = req.body.casts != undefined ? req.body.casts : savedMovie.casts,
-        savedMovie.director = req.body.director != undefined ? req.body.director : savedMovie.director,
-        savedMovie.trailerUrl = req.body.trailerUrl != undefined ? req.body.trailerUrl : savedMovie.trailerUrl,
-        savedMovie.posterUrl = req.body.posterUrl != undefined ? req.body.posterUrl : savedMovie.posterUrl,
-        savedMovie.language = req.body.language != undefined ? req.body.language : savedMovie.language,
-        savedMovie.releaseDate = req.body.releaseDate != undefined ? req.body.releaseDate : savedMovie.releaseDate,
-        savedMovie.releaseSatus = req.body.releaseSatus != undefined ? req.body.releaseSatus : savedMovie.releaseSatus
+    savedMovie.name = req.body.name != undefined ? req.body.name : savedMovie.name;
+    savedMovie.description = req.body.description != undefined ? req.body.description : savedMovie.description;
+    savedMovie.casts = req.body.casts != undefined ? req.body.casts : savedMovie.casts;
+    savedMovie.director = req.body.director != undefined ? req.body.director : savedMovie.director;
+    savedMovie.trailerUrl = req.body.trailerUrl != undefined ? req.body.trailerUrl : savedMovie.trailerUrl;
+    savedMovie.posterUrl = req.body.posterUrl != undefined ? req.body.posterUrl : savedMovie.posterUrl;
+    savedMovie.language = req.body.language != undefined ? req.body.language : savedMovie.language;
+    savedMovie.releaseDate = req.body.releaseDate != undefined ? req.body.releaseDate : savedMovie.releaseDate;
+    savedMovie.releaseSatus = req.body.releaseSatus != undefined ? req.body.releaseSatus : savedMovie.releaseSatus;
 
     var updatedMovie = await savedMovie.save();
 
@@ -82,7 +83,7 @@ exports.updateMovie = async (req, res) => {
  * Delete the movie resource
  */
 exports.deleteMovie = async (req, res) => {
-
+    console.log("###",req.params);
     await Movie.deleteOne({
         _id: req.params.id
     });
