@@ -20,7 +20,7 @@ app.use(cors());
  * DB Connection initialization
  */
 mongoose.connect(dbConfig.DB_URL, () => {
-    console.log("connected to Mongo DB ")
+    ("connected to Mongo DB ")
     init();
 }, err => {
     console.log("Error :", err.mssage)

@@ -63,7 +63,7 @@ exports.updateMovie = async (req, res) => {
             message: "Movie being updated doesn't exist"
         });
     }
-
+    console.log("req.body: ", req.body);
     savedMovie.name = req.body.name != undefined ? req.body.name : savedMovie.name;
     savedMovie.description = req.body.description != undefined ? req.body.description : savedMovie.description;
     savedMovie.casts = req.body.casts != undefined ? req.body.casts : savedMovie.casts;
@@ -72,8 +72,10 @@ exports.updateMovie = async (req, res) => {
     savedMovie.posterUrl = req.body.posterUrl != undefined ? req.body.posterUrl : savedMovie.posterUrl;
     savedMovie.language = req.body.language != undefined ? req.body.language : savedMovie.language;
     savedMovie.releaseDate = req.body.releaseDate != undefined ? req.body.releaseDate : savedMovie.releaseDate;
-    savedMovie.releaseSatus = req.body.releaseSatus != undefined ? req.body.releaseSatus : savedMovie.releaseSatus;
-
+    savedMovie.releaseStatus = req.body.releaseStatus != undefined ? req.body.releaseStatus : savedMovie.releaseStatus;
+    console.log("req.body.releaseSatus: ", req.body.releaseStatus!=undefined, req.body.releaseStatus, savedMovie.releaseStatus)
+    console.log("----------")
+    console.log(savedMovie)
     var updatedMovie = await savedMovie.save();
 
     res.status(200).send(updatedMovie);
