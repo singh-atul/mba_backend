@@ -13,7 +13,6 @@ exports.getAllMovies = async (req, res) => {
         queryObj.name = req.query.name;
     }
     const movies = await Movie.find(queryObj);
-    console.log(movies);
     res.status(200).send(movies);
 
 }
@@ -23,11 +22,9 @@ exports.getAllMovies = async (req, res) => {
  * Get the movie based on the id
  */
 exports.getMovie = async (req, res) => {
-    console.log(req.params.id);
     const movie = await Movie.findOne({
         _id: req.params.id
     });
-    console.log(movie);
     res.status(200).send(movie);
 
 }
