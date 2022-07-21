@@ -13,6 +13,7 @@ exports.getAllMovies = async (req, res) => {
         queryObj.name = req.query.name;
     }
     const movies = await Movie.find(queryObj);
+    console.log(movies);
     res.status(200).send(movies);
 
 }
@@ -22,9 +23,11 @@ exports.getAllMovies = async (req, res) => {
  * Get the movie based on the id
  */
 exports.getMovie = async (req, res) => {
+    console.log(req.params.id);
     const movie = await Movie.findOne({
         _id: req.params.id
     });
+    console.log(movie);
     res.status(200).send(movie);
 
 }
@@ -33,7 +36,6 @@ exports.getMovie = async (req, res) => {
  * Create the movie resource
  */
 exports.createMovie = async (req, res) => {
-    console.log("####")
     const movieObject = {
         name: req.body.name,
         description: req.body.description,
@@ -63,7 +65,6 @@ exports.updateMovie = async (req, res) => {
             message: "Movie being updated doesn't exist"
         });
     }
-    console.log("req.body: ", req.body);
     savedMovie.name = req.body.name != undefined ? req.body.name : savedMovie.name;
     savedMovie.description = req.body.description != undefined ? req.body.description : savedMovie.description;
     savedMovie.casts = req.body.casts != undefined ? req.body.casts : savedMovie.casts;
@@ -73,9 +74,6 @@ exports.updateMovie = async (req, res) => {
     savedMovie.language = req.body.language != undefined ? req.body.language : savedMovie.language;
     savedMovie.releaseDate = req.body.releaseDate != undefined ? req.body.releaseDate : savedMovie.releaseDate;
     savedMovie.releaseStatus = req.body.releaseStatus != undefined ? req.body.releaseStatus : savedMovie.releaseStatus;
-    console.log("req.body.releaseSatus: ", req.body.releaseStatus!=undefined, req.body.releaseStatus, savedMovie.releaseStatus)
-    console.log("----------")
-    console.log(savedMovie)
     var updatedMovie = await savedMovie.save();
 
     res.status(200).send(updatedMovie);
@@ -85,7 +83,6 @@ exports.updateMovie = async (req, res) => {
  * Delete the movie resource
  */
 exports.deleteMovie = async (req, res) => {
-    console.log("###",req.params);
     await Movie.deleteOne({
         _id: req.params.id
     });

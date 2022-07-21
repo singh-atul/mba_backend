@@ -47,7 +47,6 @@ async function init() {
             password :bcrypt.hashSync("Welcome1", 8) //this field should be hidden from the end user
 
         });
-        console.log("ADMIN user created");
 
     } catch (e) {
         console.log(e.message);
@@ -83,12 +82,11 @@ async function init() {
         customer = await User.create({
             name: "atul01",
             userId: "atul01", // It should be atleat 16, else will throw error
-            email: "Kankvish3@gmail.com",  // If we don't pass this, it will throw the error
+            email: "Kankvish4@gmail.com",  // If we don't pass this, it will throw the error
             userType: "CUSTOMER",
             password :bcrypt.hashSync("Welcome1", 8) //this field should be hidden from the end user
 
         });
-        console.log("Clients created");
 
     } catch (e) {
         console.log(e.message);
