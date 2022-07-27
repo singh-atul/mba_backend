@@ -39,7 +39,7 @@ exports.signup = async (req, res) => {
         }
         res.status(201).send(postResponse);
     } catch (err) {
-        console.err("Some error while saving the user in db", err.message);
+        console.log("Some error while saving the user in db", err.message);
         res.status(500).send({
             message: "Some internal error while inserting the element"
         })
